@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+void cut_f(char *ar1,char *ar2,int n,int m);
+
+int main(void) {
+    system("COLOR B0");
+    
+    char line1[30];
+    char line2[10];
+    
+    printf("\nEnter line1:  ");
+    
+    fgets(line1,30,stdin);
+    
+    printf("\nEnter line2:  ");
+    
+    fgets(line2,10,stdin);
+    
+    
+    
+    cut_f(line1,line2,30,10);
+   
+    
+    printf("\nLine 1 now is:  %s\n",line1);
+    
+
+
+    return 0;
+}
+
+void cut_f(char *ar1,char *ar2,int n,int m)
+{
+    int i;
+    int j;
+    for(i=0;i<n;i++)
+    {
+        if(ar1[i]=='\n'|| ar1[i]=='\0')
+            break;
+              
+    }
+    for(j=0;j<m;j++)
+    {
+        ar1[i]=ar2[j];
+        i++;
+    }
+    
+    
+}
