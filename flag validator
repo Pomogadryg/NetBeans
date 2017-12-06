@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <stdbool.h>
+#define LIMIT 5
+#define AVAILABLE 5
+
+int main(void) {
+    system("COLOR B0");
+    bool contact=false;
+    
+   
+    char enter_flags[LIMIT] [100];
+    
+    char*available_flags[AVAILABLE]={"print","scan","flag", "come","play"};
+    
+    printf("\r\nEnther your flags here please:  ");
+    
+    for(int i=0;i<LIMIT;i++){
+        int count =0;
+        
+        scanf("%s",&enter_flags[i]);
+        
+        for(int j=0;j<AVAILABLE;j++){
+            if(strcmp(enter_flags[i],available_flags[j])==0)
+            {   count=1;           
+                printf("\r\n---%s---|---%s--- MATCH\r\n\r\n", enter_flags[i], available_flags[j]);
+                break;
+              
+            }
+            
+        }
+        if(count==0){
+            
+            printf("\r\n%s is Incorrect\r\n", enter_flags[i]);
+        }
+        
+        
+    }
+    return 0;
+}
