@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#define SIZE 10
+void s_gets(char *ar,int n);
+
+int main(void) {
+    system("COLOR B0");
+    char line[SIZE];
+    printf("\nType here:  ");
+    s_gets(line,SIZE);
+
+    return 0;
+}
+
+void s_gets(char *ar,int n)
+{
+    while(fgets(ar,n,stdin)!=NULL)
+    {
+        int i=0;
+        while(ar[i]!='\n'&&ar[i]!='\0')
+            i++;
+        if(ar[i]=='\0')
+        {
+            while(getchar()!='\n')
+                continue;
+            printf("\n\n%5s\n\n","<<WARNING, EXIDING THE LINE SIZE!!!>>");
+        }
+        puts(ar);
+    }
+}
