@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <time.h>
+
+int main(void) 
+{
+    system("COLOR B0");
+
+    int H_limit=100;
+    int L_limit=0;
+
+    char answerYN;
+    srand((unsigned)time(NULL));
+    int numberTOguess;
+    printf("\r\nEnter your number from %i to %i, "
+            "and I will try to guess!: ",L_limit,H_limit);
+
+    while(scanf(" %i",&numberTOguess) )
+    {
+        int check=rand()%H_limit;
+        
+        printf("\r\nyour number (%i) is: %i /y/ if YES.\r\n"
+                "If NOT, is it BIGGER /b/ or SMALLER /s/?",numberTOguess,check);
+        
+        for(;(scanf(" %c",&answerYN)),answerYN!='Y';)
+        {
+            answerYN=tolower(answerYN);
+            
+            
+            if(answerYN=='b')
+            {
+                if(check>=numberTOguess)
+                {
+                    printf("\r\n----Check once again please!------\r\n\r\n");
+                    printf("is it 'b' or 's' :   ");
+                    continue;
+                }
+                L_limit=check;
+                check=(H_limit-L_limit)/2+check;
+            }
+            if(answerYN=='s')
+            {
+                if(check<=numberTOguess)
+                {
+                    printf("\r\n----Check once again please!------\r\n\r\n");
+                    printf("is it 'b' or 's' :   ");
+                    continue;
+                }
+                H_limit=check;
+                check=check-(H_limit-L_limit)/2;
+            }
+                   printf("\r\nyour number (%i) is: %i /y/ if YES.\r\n"
+                "If NOT, is it BIGGER /b/ or SMALLER /s/?",numberTOguess,check);
+
+        }
+        printf("\r\nI did it!!!\r\n\r\n");
+        H_limit=100;
+        L_limit=0;
+        
+        printf("\r\nEnter your number from %i to %i, "
+            "and I will try to guess!: ",L_limit,H_limit);
+        
+    }
+    
+    return 0;
+}
+    
+    
