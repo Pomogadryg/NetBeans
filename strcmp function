@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#define SIZE 20
+int strcmp_s(char *ar1,char *ar2,int n);
+
+int main(void) {
+    system("COLOR B0");
+    char try[SIZE]="I can do this!";//we are comparing with this line.
+    char test[SIZE];
+    printf("\nEnter your line to compare:  ");
+    fgets(test,SIZE,stdin);
+    while(strcmp_s(test,try,SIZE)!=0)
+    {
+        printf("\nTry again:");
+        printf("\nEnter your line to compare:  ");
+        fgets(test,SIZE,stdin);
+    }
+    printf("\nCORRECT!!!!!!!!\n");
+   
+
+    return 0;
+}
+
+int strcmp_s(char *ar1,char *ar2,int n)
+{
+    int NOMATCH=0;
+    for(int i=0;isprint(ar1[i]),isprint(ar2[i]);i++)
+    {
+        
+        if(ar1[i]!=ar2[i])
+        {
+            NOMATCH++;
+            break;
+        }
+              
+    }
+    if(NOMATCH!=0)
+        return -1;
+    else 
+        return 0;
+        
+}
+
+
+
