@@ -1,0 +1,49 @@
+/*Write a program that accepts a positive integer as input and then displays all the prime
+numbers smaller than or equal to that number..*/
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <stdbool.h>
+
+int main(void) {
+    system("COLOR B0");
+    
+    unsigned int e_number;
+    int total=0;
+    
+    
+    printf("enter here:   ");
+    while(scanf("%i",&e_number))
+    {
+        
+       
+        for(int i=1; i<e_number;i++)
+        {
+            int count=0;
+            
+            for(int j=1;j<=i;j++)
+            {
+                if(i%j==0)
+                {
+                    count++;
+                    
+                }
+                
+            }
+            if(count==2)
+            {
+                printf("\r\n %i is a prime from %i", i, e_number);
+                total++;
+            }
+            
+            
+            
+        }
+        printf("\r\nenter here:  ");
+    }
+    printf("\r\ntotal number is %i",total);
+    
+    return 0;
+}
