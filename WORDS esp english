@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <time.h>
+
+
+#define WORDS 25
+void func_words(int rnd);
+
+int main(void) {
+    
+    system("COLOR B0");
+    srand((time)(NULL));
+    char ch;
+    int random;
+    int count=0;
+    int rand_array[1000];
+    int MATCH;
+    printf("\nPress Enter to continue:");
+    
+    while(scanf("%c",&ch)&&ch=='\n')
+    {
+        
+        for(int i=0;random=rand()%WORDS+1;i++)
+        {
+            MATCH=0;
+            rand_array[i]=random;
+           
+            for(int j=0;j<i;j++)
+            {
+               
+                if(random==rand_array[j])
+                    MATCH++;
+            }
+            
+            if(MATCH!=0)
+            continue;
+        func_words(random);
+        count++;
+        printf("\n%i\n",count);
+        if(count==WORDS)
+            break;
+        }
+       
+        printf("\nFINISH!\n");
+        
+    }
+    
+
+
+    return 0;
+}
+
+void func_words(int rnd)
+{
+    char ch2;
+    char *ar[WORDS][2]={
+    {"Costumbre","Habbit, bad habbit"},
+    {"Comer", "Eat, Eating, Meal"},
+    {"Beber", "Drink, you drink too much"},
+    {"Costumbre", "Habit, annoying habit"},
+    {"referirse", "Refer"},
+    {"el verbo", "Verb"},
+    {"Aplicar, emplear", "Apply, We applied to the authorities for assistance. To apply the new method"},
+    {"oración", "Sentence, make up a sentence, affirmative sentence"},
+    {"piel", "Skin, leather"},
+    {"las mejillas", "Cheek"},
+    {"bigote", "Moustache, Whisker"},
+    {"barba", "beard"},
+    {"las pestañas", "eyelash"},
+    {" lengua", "language tongue"},
+    {"	los órganos internos", "internals "},
+    {"lung ", "los pulmones"},
+    {"liver  ", "hígado"},
+    {"riñones", "Kidney "},
+    {"cuello", "neck "},
+    {"hueso", "Bones "},
+    {"músculo  musculatura", "muscle  "},
+    {"nervio", "Nerves "},
+    {"nervio", "breathe"},
+    {"Reír /  risa", "laugh smile "},
+    {"mentón", "chin "},
+    {"las cejas", "eyebrow "},
+    
+    {"", ""},
+                
+    };
+       
+        printf("        %s",ar[rnd-1][0]);
+        scanf("%c",&ch2);
+        printf("\n");
+        printf("        %s",ar[rnd-1][1]);
+        printf("\n---------------------------\n");
+}
