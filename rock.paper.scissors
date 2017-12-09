@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <time.h>
+
+int main(void) {
+    system("COLOR B0");
+    char answer[30];
+    char *my_answers[3]={
+        "rock","paper","scissors"
+    };
+    char *allowed[3]={
+        "rock","paper","scissors"
+    };
+    srand(time(NULL));
+    printf("\nRock, paper, scissors/0 to exit/:\n");
+    while(scanf("%s",&answer))
+    {
+        int temp_res;
+        for(int j=0;j<strlen(answer);j++)
+        {
+            answer[j]=tolower(answer[j]);
+        }
+        if(answer[0]=='r')
+            temp_res=0;
+        else if(answer[0]=='p')
+            temp_res=1;
+        if(answer[0]=='s')
+            temp_res=2;
+    int random=rand()%3;
+    
+    int check=(strcmp(answer,allowed[random]));
+    printf("\nCheck %i\n",check);
+    printf("\ntemp_res %i\n",temp_res);
+    if(check==0)
+        {
+            printf("\nyour is %s, my is %s\n",answer,allowed[random]);
+            printf("\n<<<DRAW>>>\n");
+            printf("<<<AGAIN>>");
+            printf("\nRock, paper, scissors/0 to exit/:\n");
+            continue;
+        }
+    else if(temp_res==0&&random==2)
+    {
+        printf("\nyour is %s, my is %s\n",answer,allowed[random]);
+        printf("<<I WIN!>>");
+        printf("<<<AGAIN>>");
+        printf("\nRock, paper, scissors/0 to exit/:\n");
+            continue;
+    }
+    else if(temp_res==0&&random==3)
+    {
+        printf("\nyour is %s, my is %s\n",answer,allowed[random]);
+        printf(">>YOU WIN!<<");
+        printf("<<<AGAIN>>");
+        printf("\nRock, paper, scissors/0 to exit/:\n");
+            continue;
+    }
+    else if(temp_res==1&&random==0)
+    {
+        printf("\nyour is %s, my is %s\n",answer,allowed[random]);
+        printf(">>YOU WIN!<<");
+        printf("<<<AGAIN>>");
+        printf("\nRock, paper, scissors/0 to exit/:\n");
+            continue;
+    }
+    else if(temp_res==1&&random==2)
+    {
+        printf("\nyour is %s, my is %s\n",answer,allowed[random]);
+        printf("<<I WIN!>>");
+        printf("<<<AGAIN>>");
+        printf("\nRock, paper, scissors/0 to exit/:\n");
+            continue;
+    }
+    else if(temp_res==2&&random==0)
+    {
+        printf("\nyour is %s, my is %s\n",answer,allowed[random]);
+        printf("<<I WIN!>>");
+        printf("<<<AGAIN>>");
+        printf("\nRock, paper, scissors/0 to exit/:\n");
+            continue;
+    }
+    else if(temp_res==1&&random==2)
+    {
+        printf("\nyour is %s, my is %s\n",answer,allowed[random]);
+       printf("<<I WIN!>>");
+        printf("<<<AGAIN>>");
+        printf("\nRock, paper, scissors/0 to exit/:\n");
+            continue;
+    }
+    
+    }
+    return 0;
+}
