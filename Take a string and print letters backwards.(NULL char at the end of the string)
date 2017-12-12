@@ -1,0 +1,37 @@
+/*
+ *Write a function that replaces the contents of a string with the string reversed. Test the
+function in a complete program that uses a loop to provide input values for feeding to
+the function.
+ 
+ 
+ */
+
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#define SIZE 20
+char string_rev(char *arr1,char *arr2,int n);
+
+int main(void) {
+    system("COLOR B0");
+    char line1[SIZE]="I can't code!";
+    char line2[SIZE];
+    string_rev(line1,line2,SIZE);            
+    puts(line2);
+    return 0;
+}
+
+char string_rev(char *arr1,char *arr2,int n)
+{
+    int i,j;    
+    for(i=strlen(arr1)-1,j=0;i>=0;i--,j++)
+    {       
+            arr2[j]=arr1[i];
+            printf("%c",arr2[j]);       
+    }
+    arr2[j]='\0';// this is important to prevent printing garbage after string will be printed.
+    printf("\n");
+    return arr2;    
+}
