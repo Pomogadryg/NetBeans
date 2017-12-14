@@ -1,0 +1,109 @@
+/*
+ Write a program that reads in up to 10 strings or to EOF , whichever comes first. Have it
+offer the user a menu with five choices: print the original list of strings, print the strings
+
+in ASCII collating sequence, print the strings in order of increasing length, print the
+strings in order of the length of the first word in the string, and quit. Have the menu
+recycle until the user enters the quit request. The program, of course, should actually
+perform the promised tasks.
+ 
+ */
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#define LIMIT 3
+#define SIZE 30
+#define SPACE ' '
+void menu(char arr1[][SIZE],int n);
+char case_d(char arr2[][SIZE]);
+
+
+int main(void) {
+    system("COLOR B0");
+    char strings[LIMIT][30];
+    printf("\nEnter your strings /q to quit/:\n");
+    for(int i=0;i<LIMIT;i++)
+    {
+        gets(strings[i]);
+        if(strings[0][0]=='q')
+            break;
+        printf("\nString %i|%s|\n",i,strings[i]);
+    }
+    menu(strings,LIMIT);
+
+    return 0;
+}
+void menu(char arr1[][SIZE],int n)
+{
+    char ch;
+    char *temp_c[SIZE];
+    
+    
+    printf("\nPlease, make your choise:\n");
+    printf("\n[%s]\n[%s]","a - Print the original "
+            "list of strings","b - Print the strings in ASCII collating sequence");
+    printf("\n[%s]\n[%s]","c - Print the strings in order of "
+            "increasing length","d - Print the strings in "
+            "order of the length of the first word in the string");
+    printf("\n[%s]\n","q - Quit");
+    scanf("%c",&ch);
+    switch(ch)
+    {
+        case 'a':
+            for(int i=0;i<n;i++)
+                printf("\n<%s>",arr1[i]);
+            break;
+                
+        case 'b':
+            for(int j=0;j<LIMIT;j++)
+                for(int a=0;a<strlen(arr1[j]);a++)
+                    printf("<%d>",arr1[j][a]);
+                break;
+        case 'c':            
+            for(int i=0;i<LIMIT;i++)
+            {
+                int count=0;
+                for(int j=0;j<LIMIT;j++)
+                {
+                    if(strlen(arr1[i])<strlen(arr1[j]))
+                        count++;
+                }
+                temp_c[count-1]=arr1[i];
+                printf("\n<%s>",temp_c[count-1]);
+            }
+                break;
+        case 'd':
+            case_d(arr1);
+            break;
+        default :
+            printf("\nWrong letter, try again\n");
+            break;
+                              
+    }  
+    return 0;
+}
+
+char case_d(char arr2[][SIZE])
+{
+    int count;
+    char *temp[LIMIT];
+    for(int i=0;i<LIMIT;i++)
+    {
+        count=0;
+        for(int j=0;j<LIMIT;j++)
+        {
+            if((strchr(arr2[i],SPACE)-&arr2[i][0])<(strchr(arr2[j],SPACE)-&arr2[j][0]))
+                count++;
+        }
+        temp[count]=arr2[i];       
+    }
+    
+    for(int a=0;a<LIMIT;a++)    
+        printf("\n<%s>\n",temp[a]);
+    
+}
+
+
+
+
